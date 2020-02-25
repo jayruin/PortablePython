@@ -1,0 +1,9 @@
+{
+  "PythonDownloadUrl": "https://www.python.org/ftp/python/{0}/python-{0}-embed-amd64.zip",
+  "PipDownloadUrl": "https://bootstrap.pypa.io/get-pip.py",
+  "Version": "3.7.6",
+  "Packages": [
+    "PySide2",
+    "PyQt5"
+  ]
+}
