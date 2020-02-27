@@ -9,12 +9,16 @@ namespace PortablePython
     {
         static void Main(string[] args)
         {
-            Trace.Listeners.Clear();
-            Trace.AutoFlush = true;
-            Trace.Listeners.Add(new TextWriterTraceListener("output.txt"));
-            Trace.Listeners.Add(new ConsoleTraceListener());
-            Installer installer = new Installer(JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json")));
-            installer.Install();
+            Scribe.Provision(true, "output.txt");
+            try
+            {
+                Installer installer = new Installer(JsonSerializer.Deserialize<Config>(File.ReadAllText("config.json")));
+                installer.Install();
+            }
+            catch (Exception e)
+            {
+                Scribe.WriteLine(e.Message);
+            }
         }
     }
 }

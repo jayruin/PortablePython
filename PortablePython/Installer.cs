@@ -128,8 +128,8 @@ namespace PortablePython
                 pythonInterpreter.StartInfo.UseShellExecute = false;
                 pythonInterpreter.StartInfo.RedirectStandardOutput = true;
                 pythonInterpreter.StartInfo.RedirectStandardError = true;
-                pythonInterpreter.OutputDataReceived += (sender, e) => Trace.WriteLine(e.Data);
-                pythonInterpreter.ErrorDataReceived += (sender, e) => Trace.WriteLine(e.Data);
+                pythonInterpreter.OutputDataReceived += (sender, e) => Scribe.WriteLine(e.Data);
+                pythonInterpreter.ErrorDataReceived += (sender, e) => Scribe.WriteLine(e.Data);
                 pythonInterpreter.Start();
                 pythonInterpreter.BeginOutputReadLine();
                 pythonInterpreter.BeginErrorReadLine();
